@@ -75,8 +75,11 @@ var pageSearchResults = {
 }
 $(document).ready(function() {
     $("#searchMaleData").append(localStorage.getItem("maleResultsData"));
+    $("#maleResultsCount").text(localStorage.getItem("maleResultsCount"));
     $("#searchFemaleData").append(localStorage.getItem("femaleResultsData"));
+    $("#femaleResultsCount").text(localStorage.getItem("femaleResultsCount"));
     $("#searchKidsData").append(localStorage.getItem("kidsResultsData"));
+    $("#kidsResultsCount").text(localStorage.getItem("kidsResultsCount"));
     $('body').removeClass();
 });
 $('#searchData').on('shown.bs.collapse', function () {

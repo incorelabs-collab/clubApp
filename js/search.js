@@ -121,7 +121,12 @@ var searchMiniApp = {
     },
     buildSearchResults: function (maleResults, femaleResults, kidsResults) {
         var imgDir = localStorage.getItem("imgDir");
-        
+
+        localStorage.removeItem("maleResultsCount");
+        localStorage.removeItem("femaleResultsCount");
+        localStorage.removeItem("kidsResultsCount");
+
+        localStorage.setItem("maleResultsCount", maleResults.id.length);
         if(maleResults.id.length > 0) {
             var resultHTML = "";
             for(var i=0, dataLength=maleResults.id.length; i<dataLength; i++) {
@@ -132,6 +137,7 @@ var searchMiniApp = {
             localStorage.setItem("maleResultsData", "<div><h4>No male members with the specified search criteria.</h4></div>");
         }
 
+        localStorage.setItem("femaleResultsCount", femaleResults.id.length);
         if(femaleResults.id.length > 0) {
             var resultHTML = "";
             for(var i=0, dataLength=femaleResults.id.length; i<dataLength; i++) {
@@ -142,6 +148,7 @@ var searchMiniApp = {
             localStorage.setItem("femaleResultsData", "<div><h4>No female members with the specified search criteria.</h4></div>");
         }
 
+        localStorage.setItem("kidsResultsCount", kidsResults.id.length);
         if(kidsResults.id.length > 0) {
             var resultHTML = "";
             for(var i=0, dataLength=kidsResults.id.length; i<dataLength; i++) {
